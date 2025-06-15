@@ -14,8 +14,11 @@ const PORT = process.env.PORT || 3002;
 const uri = process.env.MONGO_URL;
 
 const app = express();
-
-app.use(cors());
+const cors = require("cors");
+app.use(cors({
+  origin: "https://symphonious-raindrop-4e76bc.netlify.app/", // or '*', if not strict
+  credentials: true
+}));
 app.use(bodyParser.json());
 
 // app.get("/addHoldings", async (req, res) => {
